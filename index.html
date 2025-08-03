@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisah Nabi Muhammad</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font and general body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f8f0; /* Light green-gray background */
+            color: #1e3a24; /* Dark green text */
+        }
+        /* Style for active menu item */
+        .menu-item.active {
+            background-color: #047857; /* Emerald-700 */
+            color: #ffffff;
+            font-weight: bold;
+        }
+        /* Submenu specific styles */
+        .submenu-container {
+            margin-left: 1rem; /* Indent submenus */
+            border-left: 2px solid #d1d5db; /* Gray-300 border */
+            padding-left: 0.5rem;
+        }
+        .submenu-item {
+            display: block;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            color: #475569; /* Slate-600 */
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+        .submenu-item:hover {
+            background-color: #dcfce7; /* Green-50 */
+            color: #065f46; /* Emerald-700 */
+        }
+        .submenu-item.active {
+            background-color: #a7f3d0; /* Emerald-200 */
+            color: #065f46; /* Emerald-700 */
+            font-weight: 600;
+        }
+        /* Toggle icon for submenus */
+        .toggle-icon {
+            transition: transform 0.2s ease-in-out;
+        }
+        .toggle-icon.rotated {
+            transform: rotate(90deg);
+        }
+        /* Scrollbar styling for content area */
+        .content-area::-webkit-scrollbar {
+            width: 8px;
+        }
+        .content-area::-webkit-scrollbar-track {
+            background: #e2e8e0; /* A light green-gray */
+            border-radius: 10px;
+        }
+        .content-area::-webkit-scrollbar-thumb {
+            background: #064e3b; /* A dark green */
+            border-radius: 10px;
+        }
+        .content-area::-webkit-scrollbar-thumb:hover {
+            background: #047857; /* A slightly lighter green */
+        }
+          h2 {
+    font-family: 'Inter', sans-serif;
+    color: green;
+    font-size: 2em; 
+    font-weight: 800;
+  }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-green-700 to-emerald-900 text-white p-4 shadow-lg rounded-b-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold tracking-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-white">Kisah Nabi Muhammad</span>
+            </h1>
+            <nav>
+                <!-- <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-green-200 transition duration-300">Beranda</a></li>
+                    <li><a href="#" class="hover:text-green-200 transition duration-300">Tentang</a></li>
+                    <li><a href="#" class="hover:text-green-200 transition duration-300">Kontak</a></li>  -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow container mx-auto p-4 flex flex-col lg:flex-row gap-6">
+
+        <!-- Sidebar / Menu -->
+                <aside class="w-full lg:w-1/4 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <h2 class="text-2xl font-semibold mb-5 text-gray-800 border-b pb-3">Topik</h2>
+            <nav id="menu" class="space-y-3">
+                <!-- Menu items and submenus will be dynamically loaded here by JavaScript -->
+            </nav>
+        </aside>
+
+        <!-- Content Display Area -->
+        <section class="flex-grow w-full lg:w-3/4 bg-white p-8 rounded-xl shadow-lg border border-gray-200 relative">
+            <div id="content-display" class="content-area h-full overflow-y-auto pr-4">
+                <!-- Content will be dynamically loaded here by JavaScript -->
+            </div>
+            
+            <!-- Back to Top Button -->
+            <button id="back-to-top-btn" class="fixed bottom-4 right-4 bg-emerald-600 text-white p-3 rounded-full shadow-lg hover:bg-emerald-700 transition-all duration-300 hidden">
+                <!-- SVG icon for a simple upward arrow -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-6 rounded-t-lg shadow-inner">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 Kisah Nabi Muhammad. Hak Cipta Dilindungi. | Didesain dengan Tailwind CSS
+        </div>
+    </footer>
+
+    <script>
+        // JSON Database for educational content with subtopics (Diterjemahkan ke Bahasa Indonesia)
+        const educationData = {
+              "pendahuluan-app": {
+                "title": "Pendahuluan",
+                "content": `
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Selamat datang di aplikasi <strong>Kisah Nabi Muhammad</strong>. Aplikasi ini dirancang untuk membantu  pemahaman yang ringkas mengenai kehidupan, ajaran, dan warisan Nabi Muhammad SAW. Dengan menyajikan informasi secara terstruktur, kami berharap aplikasi ini dapat menjadi sumber inspirasi dan pengetahuan bagi semua pengguna.
+                    </p>
+                    <h3 class="text-xl font-semibold mt-4 mb-2">Latar Belakang Kehidupan di Jazirah Arab</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Sebelum Islam datang, Jazirah Arab dikenal sebagai "Zaman Jahiliyah" atau masa kebodohan (jahl). Kebodohan  ini tidak sekedar lawan dari pengetahuan, tetapi juga lawan dari kewarasan moral dari orang-orang yang beradab. Kebodohan ini mengacu pada sifat bengis, ceroboh dan temperamen tak terkendali dari Arab pagan masa pra Islam.  Masyarakatnya hidup dalam kondisi sosial yang tidak teratur, dengan praktik-praktik seperti penyembahan berhala, perbudakan, dan diskriminasi. Suku-suku saling berperang, dan wanita sering kali diperlakukan secara tidak adil. Dalam kondisi inilah, kelahiran dan kehadiran Nabi Muhammad SAW menjadi cahaya yang mengubah dunia.
+                    </p>
+                    <h3 class="text-xl font-semibold mt-4 mb-2">Tujuan Penulisan Kisah Nabi Muhammad</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Tujuan utama dari aplikasi ini adalah untuk menyajikan kisah hidup Nabi Muhammad SAW secara ringkas dan mudah dipahami. Kami berharap melalui kisah ini, kita dapat meneladani akhlak mulia beliau, memahami perjuangan beliau dalam menyebarkan Islam, dan mengamalkan ajaran-ajaran yang beliau sampaikan. Kisah ini bukan hanya cerita masa lalu, tetapi juga panduan hidup yang relevan sepanjang masa.
+                    </p>
+ <h3 class="text-xl font-semibold mt-4 mb-2">Sumber Tulisan Ini</h3>
+ Tulisan dalam aplikasi ini bersumber dari beberapa buku:<br>
+ 1. Al Buthy, Great Episodes of Muhammad <br>
+ 2. Fethulla Gullen, 2005, The Messenger of God <br>
+ 3. Haykal, Sejarah hidup Muhammad <br>
+                `
+            },
+            "early-life": {
+                "title": "Masa Awal Kehidupan",
+                "content": `
+                      <p>Nabi Muhammad lahir di kota Mekah dari keluarga yang mulia. Nama lengkapnya adalah Muhammad bin Abdullah bin Abdul Muthalib. Beliau lahir pada <strong>Tahun Gajah</strong>, tahun di mana Raja Abrahah ingin menghancurkan Kakbah dengan pasukan gajah, namun Allah menggagalkannya.</p>
+
+  <br>
+  <p> Muhammad lahir sebagai yatim karena ayahnya meninggal sebelum beliau lahir. Tak lama setelah itu, ibunya juga wafat. Beliau kemudian diasuh oleh kakeknya, Abdul Muthalib, lalu oleh pamannya, Abu Thalib.</p>
+
+  <br>
+  <p>Sejak kecil, Muhammad sudah menunjukkan sifat mandiri. Ia bekerja menggembalakan kambing untuk warga Mekah. Allah juga selalu menjaganya dari perbuatan buruk yang biasa dilakukan anak-anak pada masa itu. </p>
+
+  <br>
+  <p>Di usia sekitar 12 tahun, Muhammad ikut pamannya berdagang ke negeri Syam. Dalam perjalanan, mereka bertemu dengan seorang pendeta Kristen bernama <strong>Buhaira</strong> yang melihat tanda-tanda kenabian pada diri Muhammad. Ia meminta Abu Thalib untuk menjaga beliau dari orang-orang yang mungkin berniat jahat.</p>
+
+  <br>
+  <p>Sebelum menjadi Nabi, Muhammad dikenal masyarakat Mekah sebagai orang yang jujur dan bisa dipercaya. Karena itu, beliau dijuluki <strong>Al-Amin</strong>. Seorang wanita bangsawan bernama <strong>Khadijah</strong> tertarik pada kepribadian Muhammad dan melamarnya. Mereka menikah saat Muhammad berusia 25 tahun dan Khadijah 40 tahun.</p>
+
+  <br>
+  <p>Pernikahan mereka berlangsung harmonis selama sekitar <strong>25 tahun</strong>, hingga Khadijah wafat. Selama masa itu, Khadijah menjadi pendukung utama Muhammad, terutama saat beliau mulai menerima wahyu dan menyampaikan ajaran Islam.</p>
+
+  <br>
+  <p>Di masa dewasanya, Muhammad sering menyendiri di Gua Hira untuk merenung dan beribadah. Di sanalah, akhirnya wahyu pertama dari Allah turun kepadanya, menandai awal tugasnya sebagai Nabi.</p>
+
+ 
+                `,
+                "subtopics": [
+                    {
+                        "key": "birth-and-childhood",
+                        "title": "Kelahiran dan Masa Kecil",
+                        "content": `
+                        <p>Nabi Muhammad lahir di kota Mekah dari keluarga yang dihormati. Beliau adalah keturunan Nabi Ibrahim melalui Ismail. Garis keturunannya sangat mulia dan berasal dari suku Quraisy, suku terkemuka di Mekah.</p>
+
+  <br>
+  <p>Beliau lahir pada Tahun Gajah, yaitu tahun saat seorang raja bernama Abrahah mencoba menghancurkan Kakbah dengan pasukan gajah. Tapi Allah menggagalkan rencana itu dengan cara yang luar biasa. Nabi Muhammad lahir pada hari Senin malam, tanggal 12 Rabiul Awal.</p>
+
+  <br>
+  <p>Saat Muhammad masih dalam kandungan ibunya, ayahnya sudah wafat. Jadi, beliau lahir sebagai anak yatim. Ibunya bernama Aminah, wanita terhormat dari suku Zuhrah. Ketika Muhammad masih bayi, beliau disusukan oleh seorang perempuan bernama Halimah dari suku Bani Sa'd, sesuai tradisi Arab saat itu.</p>
+
+  <br>
+  <p>Keluarga Halimah awalnya hidup dalam kekeringan, tetapi setelah membawa Muhammad ke rumah mereka, tanaman tumbuh subur dan ternak mereka menghasilkan banyak susu. Ini membuat mereka merasa bahwa Muhammad membawa berkah.</p>
+
+  <br>
+  <p>Saat berusia lima tahun, Muhammad dikembalikan ke ibunya. Namun tidak lama kemudian, ibunya juga wafat. Muhammad kemudian diasuh oleh kakeknya, Abdul Muthalib. Setelah kakeknya meninggal saat beliau berusia delapan tahun, Muhammad diasuh oleh pamannya, Abu Thalib.</p>
+
+  <br>
+  <p>Semua ini adalah bagian dari rencana Allah. Dengan hidup tanpa orang tua sejak kecil, tidak ada yang bisa mengatakan bahwa Muhammad sukses karena keluarganya. Allah ingin menunjukkan bahwa Nabi Muhammad dipilih langsung oleh-Nya.</p>
+
+  <br>
+  <p>Semasa kecil dan remaja, Muhammad dikenal sebagai anak yang baik, jujur, dan bisa dipercaya. Beliau bekerja menggembalakan kambing untuk membantu pamannya. Ini membuat beliau mandiri dan peduli pada orang lain.</p>
+
+  <br>
+  <p>Allah menjaga Muhammad dari kebiasaan buruk anak-anak zaman itu. Bahkan, ada kejadian ajaib saat malaikat membelah dadanya untuk membersihkan hatinya. Peristiwa ini adalah persiapan agar beliau layak menerima wahyu di masa depan.</p>
+
+  <br>
+  <p>Pada usia 12 tahun, Muhammad ikut pamannya dalam perjalanan dagang ke negeri Syam. Di sana, mereka bertemu dengan seorang pendeta Kristen bernama Buhaira. Pendeta ini mengenali tanda-tanda kenabian pada diri Muhammad.</p>
+
+  <br>
+  <p>Buhaira memperingatkan Abu Thalib agar menjaga Muhammad baik-baik, karena ada kemungkinan ada orang berlaku jahat.  Ini menunjukkan bahwa tanda-tanda kenabian Muhammad sudah diketahui oleh orang-orang berilmu sejak awal.</p>
+
+  <br>
+  <p>Sebelum menerima wahyu, Muhammad dikenal oleh masyarakat Mekah sebagai orang yang sangat jujur dan bisa dipercaya. Karena itu, beliau diberi julukan <strong>Al-Amin</strong>, yang artinya "yang terpercaya".</p>
+
+                        `
+                    },
+                    {
+                        "key": "marriage-to-khadijah",
+                        "title": "Pernikahan dengan Khadijah",
+                        "content": `
+                    <p>Sebelum menjadi Nabi, Muhammad dikenal luas sebagai orang yang sangat jujur dan dapat dipercaya. Karena kejujurannya, masyarakat Mekah memberi beliau julukan <strong>Al-Amin</strong>, yang berarti "yang terpercaya".</p>
+
+  <br>
+  <p>Sehari-hari, Muhammad bekerja sebagai pedagang. Cara berdagangnya yang jujur dan adil membuat banyak orang menghargainya. Salah satu yang tertarik dengan sifat baik beliau adalah seorang wanita bangsawan dan pedagang kaya bernama <strong>Khadijah binti Khuwailid</strong>.</p>
+
+  <br>
+  <p>Khadijah kemudian menawarkan Muhammad pekerjaan untuk membawa barang dagangannya ke negeri Syam (Suriah). Beliau menerima tawaran itu dan pergi bersama seorang pembantu Khadijah bernama <strong>Maysarah</strong>.</p>
+
+  <br>
+  <p>Setelah kembali dari perjalanan dagang, Muhammad membawa hasil yang sangat menguntungkan. Maysarah juga menceritakan kepada Khadijah bahwa Muhammad sangat jujur, rendah hati, dan pandai dalam berdagang. Khadijah pun semakin kagum dan terkesan.</p>
+
+  <br>
+  <p>Karena kekaguman itu, Khadijah mengutus seorang wanita bernama <strong>Nafisah</strong> untuk menyampaikan keinginan Khadijah agar bisa menikah dengan Muhammad. Muhammad menyetujui lamaran tersebut dan membicarakannya dengan paman-pamannya. Mereka semua sepakat. Saat menikah, <strong>umur Muhammad 25 tahun</strong> dan <strong>umur Khadijah 40 tahun</strong>.</p>
+
+  <br>
+  <p>Pernikahan mereka berlangsung <strong>selama 25 tahun</strong> dengan penuh cinta dan kebahagiaan. Selama Khadijah masih hidup, Muhammad <strong>tidak pernah menikah lagi</strong>. Ini menunjukkan kesetiaan dan cinta beliau kepada istrinya.</p>
+
+  <br>
+  <p>Dari pernikahan ini, mereka memiliki <strong>enam anak</strong>: dua putra, yaitu al-Qasim dan Abdullah, yang meninggal saat masih kecil; serta empat putri: Zaynab, Ruqayyah, Ummu Kultsum, dan Fatimah. Nabi Muhammad bahkan dikenal dengan julukan <strong>Abu al-Qasim</strong>, artinya "ayah al-Qasim".</p>
+
+  <br>
+  <p>Khadijah bukan hanya istri, tapi juga <strong>sahabat, penasihat, dan pendukung utama</strong> Muhammad. Ia selalu mendukung suaminya dalam suka dan duka, terutama ketika masa-masa sulit datang.</p>
+
+  <br>
+  <p>Nabi Muhammad sangat mencintai Khadijah. Bahkan setelah Khadijah meninggal, beliau tetap sering mengenangnya dengan penuh rasa cinta dan hormat. Hal ini menunjukkan betapa pentingnya Khadijah dalam hidup beliau.</p>
+
+  <br>
+  <p>Pernikahan ini menjadi bukti bahwa Muhammad adalah sosok yang setia, jujur, dan penuh akhlak mulia, jauh sebelum beliau diangkat menjadi Nabi. Beliau tidak menikah karena nafsu, tapi karena cinta, tanggung jawab, dan komitmen yang tulus.</p>
+
+                        `
+                    }
+                ]
+            },
+            "prophethood": {
+                "title": "Permulaan Kenabian",
+                "content": `
+<br><p><strong>Permulaan Wahyu dan Kenabian</strong></p>
+<br><p>Menjelang usia 40, Nabi Muhammad menyendiri di Gua Hira. Di sana beliau menerima wahyu pertama dari Malaikat Jibril. Khadijah menenangkannya dan membawa beliau ke Waraqah bin Nawfal, yang menyatakan bahwa Muhammad menerima wahyu seperti nabi terdahulu.</p>
+
+<br><p><strong>Awal Dakwah di Mekah</strong></p>
+<br><p>Dakwah dimulai secara sembunyi-sembunyi selama 3 tahun. Pengikut awal antara lain Khadijah, Ali, Zaid, dan Abu Bakar. Setelah itu, perintah berdakwah secara terang-terangan turun. Banyak orang menolak, termasuk pamannya, yaitu Abu Lahab.</p>
+
+<br><p><strong>Penindasan dan Boikot</strong></p>
+<br><p>Quraisy mulai menindas Nabi dan para sahabat. Mereka disiksa dan diancam. Pada tahun ke-7, keluarga Nabi diboikot secara ekonomi selama 3 tahun, hingga mengalami kelaparan. Selanjutnya pada tahun ke-10 kenabian disebut "Tahun Duka" karena wafatnya Khadijah dan Abu Thalib.</p>
+
+<br><p><strong>Isra’ Mi’raj dan Baiat Aqabah</strong></p>
+<br><p>Nabi berdakwah ke Tha'if, tapi ditolak. Setelah itu, Allah menghibur Nabi dengan peristiwa Isra’ Mi’raj. Kemudian, orang-orang dari Yatsrib mulai menerima Islam dan mengadakan Baiat Aqabah Pertama dan Kedua, berjanji akan melindungi beliau.</p>
+
+<br><p><strong>Hijrah ke Madinah</strong></p>
+<br><p>Karena tekanan Quraisy, Nabi diperintahkan berhijrah. Beliau pun meninggalkan Mekah menuju Yatsrib (Madinah), yang menjadi awal baru bagi umat Islam.</p>
+
+  
+                `,
+                "subtopics": [
+                    {
+                        "key": "first-revelation",
+                        "title": "Wahyu Pertama",
+                        "content": `
+                            <br><p><strong>Permulaan Wahyu dan Kenabian (Usia 40 Tahun)</strong></p>
+<br><p>Menjelang usia 40 tahun, Nabi Muhammad sering menyendiri di Gua Hira, sebuah gua di bukit dekat Mekah. Beliau tinggal di sana selama beberapa malam hingga sebulan, membawa bekal untuk beribadah dan merenung. Ini menjadi persiapan penting bagi beliau sebelum menerima tugas besar sebagai nabi.</p>
+
+<br><p><strong>Wahyu Pertama: Perintah "Bacalah!"</strong></p>
+<br><p>Suatu malam saat berada di Gua Hira, Nabi Muhammad didatangi oleh Malaikat Jibril yang berkata, "Bacalah!". Nabi menjawab bahwa ia tidak bisa membaca. Setelah perintah itu diulang beberapa kali, beliau akhirnya mengikuti bacaan yang diajarkan malaikat. Ini adalah wahyu pertama dari Allah.</p>
+
+<br><p>Setelah kejadian itu, Nabi pulang dalam keadaan takut dan gemetar. Beliau berkata kepada istrinya, "Selimuti aku, selimuti aku!" Khadijah menenangkan dan meyakinkan beliau bahwa Allah tidak akan mencelakakan beliau karena selama ini beliau adalah orang baik yang suka membantu dan jujur.</p>
+
+<br><p><strong>Bertemu Waraqah bin Nawfal</strong></p>
+<br><p>Khadijah lalu membawa Nabi Muhammad menemui sepupunya, Waraqah bin Nawfal, seorang ahli kitab yang sudah tua. Waraqah mengatakan bahwa Nabi benar-benar telah menerima wahyu, seperti yang turun kepada Nabi Musa. Ia juga mengatakan bahwa orang yang membawa risalah seperti ini pasti akan dimusuhi oleh kaumnya.</p>
+
+<br><p><strong>Jeda Wahyu (Fatrah)</strong></p>
+<br><p>Setelah wahyu pertama, tidak ada wahyu baru selama beberapa waktu (sekitar enam bulan). Masa jeda ini membuat Nabi merasa bingung dan cemas. Namun ini adalah kehendak Allah, untuk menunjukkan bahwa wahyu tidak berasal dari pikiran Nabi sendiri, melainkan dari luar dirinya.</p>
+
+<br><p><strong>Wahyu Kedua: Perintah Berdakwah</strong></p>
+<br><p>Setelah masa jeda, Nabi melihat Malaikat Jibril lagi di langit, duduk di antara langit dan bumi. Nabi kembali merasa takut dan berkata, "Selimuti aku!" Lalu Allah menurunkan Surah Al-Muddatstsir: "Hai orang yang berselimut, bangunlah dan beri peringatan." Inilah awal dari tugas Nabi untuk menyampaikan ajaran Islam kepada umat manusia.</p>
+                        `
+                    },
+                    {
+                        "key": "preaching-in-mecca",
+                        "title": "Dakwah di Mekah",
+                        "content": `
+                            <p><strong>Dakwah Diam-diam:</strong><br>
+Pada awalnya, Nabi Muhammad berdakwah secara sembunyi-sembunyi selama beberapa tahun. Beliau hanya mengajak orang-orang yang kemungkinan besar mau menerima ajaran Islam. Ini bukan karena takut, tapi memang seperti itu perintah dari Allah.</p>
+<br>
+<p>Orang-orang pertama yang masuk Islam adalah Khadijah (istrinya), Ali bin Abi Thalib, Zaid bin Haritsah, Abu Bakar Ash-Shiddiq, dan beberapa sahabat lainnya. Mereka sering berkumpul di rumah Al-Arqam untuk belajar Islam.</p>
+<br>
+<p><strong>Dakwah Terang-terangan:</strong><br>
+Setelah tiga tahun, Allah memerintahkan Nabi Muhammad untuk berdakwah secara terbuka. Beliau naik ke Bukit Shafa dan memanggil kaum Quraisy, memperingatkan mereka tentang azab Allah. Tapi kaum Quraisy menolak, bahkan memusuhi beliau. Pamannya sendiri, Abu Lahab, sangat menentang.</p>
+<br>
+<p><strong>Penindasan dan Tawaran Dunia:</strong><br>
+Nabi dan para sahabatnya sering dihina dan disakiti. Kaum Quraisy bahkan menawarkan harta dan kekuasaan agar Nabi berhenti berdakwah, tapi beliau menolak. Karena itu, turunlah Surah Al-Kafirun sebagai jawaban atas penolakan Nabi terhadap ajakan kompromi.</p>
+<br>
+<h2>Boikot dan Tahun Duka</h2>
+
+<p><strong>Boikot:</strong><br>
+Kaum Quraisy memboikot Nabi dan keluarganya selama 3 tahun. Mereka dilarang membeli, menjual, atau menikah dengan orang-orang dari Bani Hasyim. Mereka hidup sangat susah, sampai makan daun dan kulit pohon. Boikot ini akhirnya dihentikan setelah beberapa orang Quraisy merasa kasihan.</p>
+<br>
+<p><strong>Tahun Duka:</strong><br>
+Tahun ke-10 kenabian disebut "Tahun Duka" karena dua orang terdekat Nabi wafat: istrinya Khadijah dan pamannya Abu Thalib. Kehilangan ini sangat menyedihkan, karena keduanya adalah pendukung setia Nabi.</p>
+<br>
+<h2>Perjalanan ke Tha'if dan Isra' Mi'raj</h2>
+
+<p><strong>Tha'if:</strong><br>
+Nabi pergi ke Tha'if untuk berdakwah dan mencari perlindungan, tapi penduduknya malah melempari beliau dengan batu. Zaid bin Haritsah mencoba melindungi beliau. Meski begitu, Nabi tetap mendoakan mereka agar mendapat hidayah.</p>
+<br>
+<p><strong>Isra’ dan Mi’raj:</strong><br>
+Sebagai penghiburan dari Allah, Nabi mengalami perjalanan malam (Isra') dari Mekah ke Baitul Maqdis, lalu naik ke langit (Mi’raj). Di sana, beliau menerima perintah salat lima waktu. Peristiwa ini memperkuat kenabian beliau meskipun banyak orang mengejeknya.</p>
+<br>
+<h2>Perjanjian dengan Penduduk Madinah</h2>
+
+<p><strong>Baiat Aqabah Pertama:</strong><br>
+Enam orang dari Yatsrib (Madinah) bertemu Nabi saat musim haji dan masuk Islam. Mereka berjanji tidak menyekutukan Allah dan tidak berbuat dosa besar. Nabi mengutus Mush’ab bin Umair ke Madinah untuk mengajarkan Islam.</p>
+<br>
+<p><strong>Baiat Aqabah Kedua:</strong><br>
+Setahun kemudian, 70 pria dan 2 wanita dari Madinah datang untuk berbaiat kepada Nabi. Mereka berjanji melindungi Nabi seperti melindungi keluarga sendiri. Nabi menunjuk 12 orang dari mereka sebagai pemimpin kelompok (naqib).</p>
+<br>
+<h2>Rencana Quraisy dan Perintah Hijrah</h2>
+
+<p>Karena Islam semakin berkembang di Madinah, kaum Quraisy merasa terancam. Mereka berkumpul dan merencanakan pembunuhan terhadap Nabi Muhammad agar tanggung jawab terbagi di semua suku. Tapi Allah memerintahkan Nabi untuk hijrah ke Madinah.</p>
+                        `
+                    }
+                ]
+            },
+            "hijra": {
+                "title": "Hijrah",
+                "content": `
+                  <br><p><strong>Hijrah ke Madinah (622 Masehi)</strong></p>
+<br><p>Setelah melihat penderitaan kaum Muslimin yang makin parah di Mekah, Nabi Muhammad memerintahkan para sahabatnya untuk hijrah ke Yatsrib (yang kemudian dikenal sebagai Madinah). Sebelumnya, ada juga yang hijrah ke Abisinia (Ethiopia), yang dipimpin oleh raja yang adil bernama Najasyi. Para sahabat pergi secara diam-diam, meninggalkan rumah dan harta benda mereka demi menyelamatkan agama mereka. Hanya Umar bin Khattab yang hijrah secara terang-terangan.</p>
+
+<br><p>Nabi Muhammad sendiri hijrah bersama sahabat terdekatnya, Abu Bakar, setelah mendapat izin dari Allah. Pada malam saat Quraisy merencanakan untuk membunuh Nabi, beliau meminta Ali bin Abi Thalib tidur di tempat tidurnya untuk mengelabui mereka. Nabi dan Abu Bakar kemudian bersembunyi di Gua Tsur selama tiga hari. Walau kaum Quraisy mencari hingga ke mulut gua, Allah melindungi mereka. Setelah itu, mereka dibantu oleh seorang penunjuk jalan bernama Abdullah bin Arqath dan tiba di Quba. Dari sana, mereka melanjutkan perjalanan ke Madinah dan disambut dengan penuh kebahagiaan oleh kaum Anshar.</p>
+
+<br><p>Unta Nabi berhenti di sebidang tanah milik dua anak yatim di depan rumah Abu Ayyub Al-Anshari. Di sanalah Nabi tinggal dan membangun masjid pertama.</p>
+
+<br><p>Hijrah ini mengajarkan bahwa menjaga agama dan keyakinan lebih penting daripada harta, rumah, atau kedudukan. Hijrah juga menunjukkan bahwa kita harus tetap berusaha secara nyata (ikhtiar), sambil tetap bertawakal kepada Allah.</p>
+
+<br><p><strong>Pilar-Pilar Masyarakat Baru di Madinah</strong></p>
+
+<br><p>Setelah tiba di Madinah, Nabi Muhammad membangun tiga fondasi utama bagi masyarakat Islam:</p>
+
+<br><p>1. <strong>Pembangunan Masjid:</strong> Nabi ikut serta membangun Masjid Nabawi di tanah tempat untanya berhenti. Masjid ini menjadi pusat ibadah dan pendidikan.</p>
+
+<br><p>2. <strong>Persaudaraan Antar Muslim:</strong> Nabi mempersaudarakan kaum Muhajirin (orang-orang Mekah yang hijrah) dengan kaum Anshar (penduduk asli Madinah). Ikatan ini begitu erat hingga awalnya mereka s
+ng mewarisi. Namun kemudian hukum waris dikembalikan kepada keluarga setelah masyarakat Islam menjadi lebih stabil.</p>
+
+<br><p>3. <strong>Piagam Madinah:</strong> Nabi membuat kesepakatan yang disebut Piagam Madinah. Piagam ini mengatur hubungan antara semua penduduk Madinah, termasuk Muslim dan Yahudi, serta menjamin kebebasan beragama dan hak-hak bersama.</p>
+
+<br><p><strong>Fase Perang Defensif (Setelah Hijrah sampai Perjanjian Hudaibiyah)</strong></p>
+
+<br><p>Setelah hijrah, Allah mengizinkan kaum Muslim untuk berperang demi membela diri:</p>
+
+<br><p>• <strong>Perang Waddan (1 H):</strong> Operasi militer pertama Nabi, berakhir tanpa pertempuran, hanya perjanjian damai.</p>
+
+<br><p>• <strong>Perang Badar (2 H):</strong> Awalnya bertujuan mencegat kafilah Quraisy, tapi berubah jadi perang besar. Muslim menang dengan bantuan Allah dan malaikat. </p>
+
+<br><p>• <strong>Pengusiran Bani Qainuqa (2 H):</strong> Kaum Yahudi pertama yang melanggar perjanjian. Mereka dikepung dan diusir dari Madinah.</p>
+
+<br><p>• <strong>Perang Uhud (3 H):</strong> Quraisy ingin membalas kekalahan di Badar. Awalnya Muslim unggul, tapi pasukan pemanah melanggar perintah Nabi, sehingga Muslim kalah. Nabi terluka dan banyak sahabat gugur. Ini menjadi pelajaran penting tentang ketaatan.</p>
+
+<br><p>• <strong>Tragedi Raji’ dan Bi’r Ma’unah (3-4 H):</strong> Utusan dakwah dibunuh secara licik oleh suku-suku Nejd Arab. Ini memperlihatkan risiko besar dakwah di masa itu.Pasukan muslim bergerak keluar mmemerangi suku-suku yang berkhianat itu, tetapi mereka memilih menjauh.</p>
+
+<br><p>• <strong>Pengusiran Bani Nadir (4 H):</strong> Kaum Yahudi yang berkhianat dengan merencanakan membunuh Nabi. Allah membongkar rencana mereka. Mereka dikepung dan diusir.</p>
+
+<br><p>• <strong>Perang Dzat al-Riqa’ (4/5 H):</strong> Sahabat menunjukkan kesabaran luar biasa dalam kondisi sulit. Shalat dalam keadaan bahaya (Shalat Khauf) disyariatkan di sini.</p>
+
+<br><p>• <strong>Perang Bani Mustaliq (5 H):</strong> Fitnah terhadap Aisyah terjadi di sini. Wahyu turun membebaskan Aisyah dari tuduhan. Ini juga memperjelas kemunafikan Abdullah bin Ubay bin Salul.</p>
+
+<br><p>• <strong>Perang Khandaq/Ahzab (5 H):</strong> Quraisy dan sekutu mengepung Madinah. Atas ide Salman Al-Farisi, digalilah parit besar. Allah menurunkan badai dan perpecahan di antara musuh, sehingga mereka gagal tanpa perang besar. Nabi sempat menunda Shalat Ashar karena kondisi perang.</p>
+
+<br><p>• <strong>Pengusiran Bani Qurayzah (5 H):</strong> Setelah Khandaq, Bani Qurayzah dihukum karena pengkhianatan. Hukuman mereka ditentukan berdasarkan hukum Taurat.</p>
+
+<br><p><strong>Fase Penaklukan (Setelah Perjanjian Hudaibiyah)</strong></p>
+
+<br><p>• <strong>Perjanjian Hudaibiyah (6 H):</strong> Nabi dan para sahabat berniat umrah tapi dihalangi Quraisy. Terjadi perjanjian damai yang secara kasat mata merugikan Muslim, tapi justru menjadi kemenangan besar karena membuka jalan dakwah lebih luas. Banyak orang masuk Islam setelah ini.</p>
+
+<br><p>• <strong>Perang Khaibar (7 H):</strong> Muslim menaklukkan benteng Yahudi di Khaibar. Ali bin Abi Thalib memimpin pasukan. Nabi selamat dari usaha pembunuhan dengan racun.</p>
+
+<br><p>• <strong>Misi Dakwah ke Raja-Raja (7 H):</strong> Nabi mengirim surat kepada para raja besar seperti Raja Abisinia, Kaisar Romawi, dan Raja Persia, mengajak mereka masuk Islam. Ini menunjukkan bahwa Islam adalah risalah untuk seluruh dunia.</p>
+
+<br><p>• <strong>Umrah Qadha (7 H):</strong> Nabi dan 2.000 sahabat melakukan umrah sebagai pengganti yang tertunda tahun sebelumnya. Ini menunjukkan kekuatan dan persatuan kaum Muslimin.</p>
+
+<br><p>• <strong>Perang Mu’tah (8 H):</strong> Melawan pasukan besar Romawi (200.000) dengan 3.000 Muslim. Tiga panglima Muslim gugur, dan Khalid bin Walid menggantikannya memimpin dan dijuluki “Pedang Allah”.</p>
+
+<br><p>• <strong>Penaklukan Mekah (8 H):</strong> Setelah Quraisy melanggar perjanjian, Nabi memimpin 10.000 pasukan. Mekah ditaklukkan tanpa perlawanan berarti. Nabi memaafkan musuh-musuh lamanya dan menghancurkan berhala-berhala di Ka'bah.</p>
+
+<br><p>• <strong>Perang Hunain (8 H):</strong> Muslim sempat terpukul mundur oleh suku Hawazin dan Tsaqif. Nabi tetap bertahan dan memanggil pasukan. Akhirnya Muslim menang. Harta rampasan dibagikan secara adil, termasuk kepada mualaf baru.</p>
+
+<br><p>• <strong>Perang Tabuk (9 H):</strong> Ekspedisi besar menghadapi ancaman Romawi. Kondisi sangat sulit, karena cuaca dan kekurangan logistik.</p>
+
+<br><p>• <strong>Abu Bakar Memimpin Haji (9 H):</strong> Nabi mengutus Abu Bakar memimpin haji. Setelah itu, orang musyrik dilarang ikut haji, dan tawaf telanjang dilarang. Ali bin Abi Thalib membacakan ayat dari Surah At-Taubah sebagai pengumuman pelarangan tersebut.</p>
+
+<br><p>• <strong>Masjid Dhirar (9 H):</strong> Dibangun oleh kaum munafik untuk memecah umat Islam. Nabi memerintahkan untuk menghancurkannya karena niat jahat mereka.</p>
+
+<br><p>• <strong>Tahun Delegasi (9-10 H):</strong> Setelah Islam menyebar, banyak delegasi dari suku-suku Arab datang menyatakan masuk Islam. Ini menunjukkan luasnya pengaruh Islam di Jazirah Arab.</p>
+ <br>
+          `
+            },
+            "later-life": {
+                "title": "Masa Akhir dan Warisan",
+                "content": `
+                   <br><p>Penaklukan Kota Mekah terjadi setelah pelanggaran Perjanjian Hudaibiyah oleh kaum Quraisy. Nabi Muhammad  memimpin sekitar 10.000 pasukan Muslim dari Madinah menuju Mekah pada tahun ke-8 Hijriah. Meski datang sebagai pemenang, beliau menunjukkan kerendahan hati yang mendalam. Saat tiba di Dzu Thuwa, Nabi menundukkan kepala dalam sujud syukur. Strategi masuk kota dijalankan dengan damai, disertai perintah untuk tidak menyerang kecuali diserang. Penduduk Mekah diberi jaminan keamanan jika tetap di rumah atau berlindung di Masjidil Haram.</p>
+
+<br><p>Penaklukan Mekah berlangsung tanpa pertumpahan darah besar. Nabi  menunjukkan kemuliaan akhlaknya dengan memberikan ampunan kepada mereka yang dahulu memusuhinya. Melalui peristiwa ini, fanatisme jahiliyah dan tradisi kekerasan mulai dihapus. Mekah dibersihkan dari penyembahan berhala dan diangkat menjadi pusat spiritual Islam yang suci, dengan penegasan akan perlindungan atas darah dan pohon-pohon di dalam kota itu  kecuali untuk keadilan.</p>
+
+<br><p>Dua tahun kemudian, Nabi Muhammad  menunaikan ibadah haji perpisahan (Haji Wada’) dan memberikan khutbah penting di Arafah. Dalam khutbah ini, beliau menegaskan hak-hak manusia, persaudaraan Islam, penghapusan tradisi jahiliyah, dan pentingnya memperlakukan wanita dengan baik. Beliau juga menyampaikan bahwa agama Islam telah sempurna. Pesan itu disampaikan kepada ribuan sahabat, yang kemudian diperintahkan untuk menyebarkannya kepada generasi berikutnya.</p>
+
+<br><p>Beberapa bulan setelah Haji Wada’, Nabi jatuh sakit dan wafat di rumah Aisyah pada usia 63 tahun. Kepergiannya mengejutkan umat Islam, namun Abu Bakar mengingatkan bahwa Rasul pun manusia yang akan kembali kepada Allah. Nabi tidak mewariskan harta, tetapi meninggalkan Al-Quran, Sunnah, serta masyarakat Islam yang kuat. Warisan beliau meliputi sistem sosial, hukum, pendidikan, dan kepemimpinan yang menjadi dasar peradaban Islam yang terus berkembang.</p>
+                `,
+                "subtopics": [
+                    {
+                        "key": "farewell-pilgrimage",
+                        "title": "Pembebasan Makkah",
+                        "content": `
+                            <br><p><strong>Penaklukan Kota Makkah</strong></p>
+
+<br><p>Penaklukan Kota Makkah adalah peristiwa penting dalam sejarah Islam yang terjadi setelah ditandatanganinya Perjanjian Hudaibiyah. Makkah dapat ditaklukkan setelah kaum Quraisy melanggar kesepakatan gencatan senjata. Nabi Muhammad sebelumnya telah bersabda bahwa setelah Perang Khandaq, kaum Muslimlah yang akan menyerang musuh, bukan sebaliknya.</p>
+
+<br><p><strong>Perjalanan dan Masuknya Pasukan Muslim:</strong></p>
+<br><p>Setelah bertahun-tahun mengalami pengusiran, gangguan, dan peperangan dari kaum Quraisy, tibalah saat yang telah lama dinantikan umat Islam: penaklukan Mekah. Pada tahun ke-8 Hijriah, Nabi Muhammad  memimpin pasukan besar yang jumlahnya sekitar 10.000 orang. Mereka terdiri dari kaum Muhajirin, yang dahulu meninggalkan Mekah demi keimanan, dan kaum Anshar, saudara-saudara seiman dari Madinah yang menyambut dan melindungi mereka.</p>
+
+<br><p>Perjalanan mereka bukanlah pawai kemenangan penuh gegap gempita, melainkan langkah penuh khidmat. Di tengah semangat kemenangan, Nabi tidak pernah kehilangan sikap rendah hati. Saat pasukan mencapai Dzu Thuwa, sebuah lembah tak jauh dari Mekah, Nabi Muhammad  berhenti sejenak. Di atas untanya yang bernama Qashwa’, beliau menundukkan kepala begitu rendah hingga janggutnya nyaris menyentuh pelana. Air matanya mengalir. Ia bukan seorang penakluk yang haus kekuasaan, melainkan seorang hamba yang bersujud dalam hati di hadapan Rabb-nya atas anugerah besar ini.</p>
+
+<br><p>Dari sana, Nabi mengatur strategi masuk kota. Beliau memerintahkan para sahabat untuk memasuki Mekah dari berbagai arah, namun dengan pesan yang jelas dan kuat: "Jangan perangi siapa pun kecuali jika kalian diserang lebih dahulu." Ini bukan ekspedisi untuk balas dendam, melainkan misi pembebasan dan pembersihan spiritual kota suci.</p>
+
+<br><p>Beliau juga membuat pengumuman yang tersebar luas di antara penduduk Mekah melalui Abu Sufyan, yang saat itu telah memeluk Islam: “Siapa yang masuk ke dalam rumah Abu Sufyan, ia aman. Siapa yang menutup pintu rumahnya, ia aman. Siapa yang masuk ke Masjidil Haram, ia pun aman.”</p>
+
+<br><p>Menurut riwayat Ibn Ishaq, banyak penduduk yang memilih bersembunyi di rumah masing-masing atau mencari perlindungan di sekitar Ka'bah. Mereka tahu bahwa Nabi yang pernah mereka sakiti dan usir tidak datang untuk membalas dendam, melainkan untuk membawa rahmat.</p>
+
+<br><p>Hari itu menjadi titik balik sejarah. Sebuah penaklukan tanpa pertumpahan darah besar. Nabi Muhammad  menunjukkan bahwa kekuatan tertinggi bukanlah terletak pada senjata, tetapi pada kasih sayang, pengampunan, dan ketinggian akhlak.</p>
+
+
+<br><p><strong>Pelajaran dan Hikmah dari Penaklukan Kota Makkah:</strong></p>
+<br><ul>
+  <li><strong>Pertolongan Ilahi:</strong> Penaklukan ini menunjukkan pertolongan Allah sebagaimana pesan wahyu pada surat An-Nashr</li>
+  <li><strong>Kemenangan Damai:</strong> Allah menghendaki penaklukan berjalan damai, sehingga banyak orang masuk Islam secara berbondong-bondong.</li>
+  <li><strong>Penghapusan Jahiliyah:</strong> Penaklukan menghapus fanatisme kesukuan dan kebanggaan jahiliyah.</li>
+  <li><strong>Kemuliaan Akhlak Nabi:</strong> Nabi memaafkan musuhnya, tidak balas dendam.</li>
+  <li><strong>Kesucian Makkah:</strong> Nabi menegaskan keharaman pertumpahan darah dan penebangan pepohonan di Makkah, kecuali dalam kondisi yang diizinkan Allah. Sanksi hukum tetap boleh dilakukan di Makkah</li>
+  <li><strong>Kedudukan Wanita:</strong> Bai'at perempuan menunjukkan peran mereka dalam masyarakat Islam.</li>
+</ul>
+                        `
+                    },
+                    {
+                        "key": "the-final-years",
+                        "title": "Haji Wada dan Tahun-Tahun Terakhir ",
+                        "content": `
+                            <h2>Haji Wada' (Haji Perpisahan)</h2>
+<p>Haji Wada' adalah satu-satunya ibadah haji yang dilakukan Nabi Muhammad dari Madinah dan terjadi pada tahun ke-10 Hijriah. Beliau mengumumkan niatnya untuk berhaji, sehingga banyak orang berbondong-bondong datang ke Madinah untuk menunaikan haji bersama beliau.</p>
+
+<ul>
+  <li><strong>Tujuan Haji Wada'</strong>: Beliau mengajari kaum Muslimin tata cara haji yang benar, membersihkan ibadah haji dari praktik-praktik Jahiliyah seperti tawaf telanjang dan penyembahan berhala.</li>
+  <li><strong>Khutbah di Arafah</strong>: Pada hari Arafah, Nabi Muhammad menyampaikan khutbah penting yang dikenal sebagai Khutbah Haji Wada' di hadapan ribuan sahabat. Poin-poin kuncinya meliputi:
+    <ul>
+      <li><strong>Pernyataan Perpisahan</strong>: Beliau menyatakan bahwa mungkin tidak akan bertemu lagi dengan mereka di tempat itu setelah tahun tersebut.</li>
+      <li><strong>Kesucian Darah dan Harta</strong>: Menegaskan keharaman menzalimi darah dan harta kaum Muslimin.</li>
+      <li><strong>Penghapusan Tradisi Jahiliyah</strong>: Semua tradisi Jahiliyah dinyatakan batal, termasuk pembalasan dendam (riba dan fanatisme kesukuan).</li>
+      <li><strong>Wasiat tentang Wanita</strong>: Menasihati untuk bertakwa kepada Allah dalam memperlakukan wanita, menjelaskan hak-hak dan kewajiban mereka.</li>
+      <li><strong>Ketaatan kepada Pemimpin</strong>: Memerintahkan untuk mendengar dan menaati pemimpin, bahkan jika itu seorang hamba sahaya, selama berpegang pada Al-Quran.</li>
+      <li><strong>Persaudaraan Muslim</strong>: Setiap Muslim adalah saudara bagi Muslim lainnya.</li>
+      <li><strong>Penyampaian Pesan</strong>: Memerintahkan hadirin untuk menyampaikan pesan ini kepada yang tidak hadir.</li>
+      <li><strong>Kesaksian Umat</strong>: Para sahabat bersaksi bahwa beliau telah menyampaikan risalah, melaksanakan amanah, dan menasihati umat. Nabi Muhammad kemudian mengangkat telunjuk ke langit dan berseru tiga kali, "Ya Allah, saksikanlah!".</li>
+    </ul>
+  </li>
+  <li><strong>Ritual Lanjutan</strong>: Setelah khutbah, beliau tetap di Arafah hingga maghrib, lalu ke Muzdalifah untuk shalat Magrib dan Isya jamak takkhir. Beliau menginap di Muzdalifah, melontar Jumrah Aqabah, menyembelih kurban, dan melakukan tawaf ifadhah di Makkah sebelum kembali ke Madinah.</li>
+</ul>
+<br>
+<h2>Sakit dan Wafatnya Nabi Muhammad</h2>
+<p>Beberapa bulan setelah Haji Wada', Nabi Muhammad jatuh sakit. Penyakit beliau dimulai setelah beliau mengunjungi pemakaman Baqi' dan mendoakan penghuninya. Sakit beliau semakin parah dengan demam yang tinggi.</p>
+
+<ul>
+  <li><strong>Dirawat di Rumah Aisyah</strong>: Istri-istri beliau mengizinkan beliau dirawat di rumah Aisyah karena Nabi merasa lebih tenang di dekatnya.</li>
+  <li><strong>Kemunculan Terakhir</strong>: Beliau sempat keluar untuk memimpin shalat berjamaah. Beliau keluar dengan dipapah oleh Al-Fadhl bin Al-Abbas dan Ali bin Abi Thalib, dan saat Abu Bakar menjadi imam, beliau duduk di sampingnya. Ini adalah kali terakhir beliau keluar untuk shalat berjamaah.</li>
+  <li><strong>Wafat</strong>: Beliau wafat dalam pelukan Aisyah, seraya mengucapkan syahadat dan merasakan sakaratul maut. Beliau meninggal pada usia 63 tahun, di awal tahun ke-11 Hijriah.</li>
+  <li><strong>Reaksi Sahabat</strong>: Berita wafatnya beliau mengejutkan banyak sahabat, dengan Umar awalnya menolak percaya, namun Abu Bakar dengan tenang mengingatkan ayat Al-Quran tentang keniscayaan kematian setiap rasul.</li>
+  <li><strong>Warisan Material</strong>: Nabi Muhammad tidak meninggalkan dinar, dirham, hamba sahaya, kecuali seekor keledai putih, pedang, dan sebidang tanah yang telah disedekahkan untuk ibnu sabil (musafir).</li>
+</ul>
+<br>
+<h2>Warisan Nabi Muhammad</h2>
+<p>Warisan Nabi Muhammad tidak terbatas pada materi, melainkan mencakup ajaran, teladan, dan institusi yang membentuk peradaban Islam.</p>
+<br>
+<h3>1. Penyempurnaan Agama Islam</h3>
+<ul>
+  <li><strong>Al-Quran dan Sunnah</strong>: Beliau mewariskan Al-Quran dan Sunnah sebagai pedoman hidup. Pencatatan Sunnah dan Sirah dimulai sejak masa beliau hidup.</li>
+  <li><strong>Tauhid Murni</strong>: Menegaskan ajaran tauhid yang dibawa Nabi Ibrahim dan membersihkan segala bentuk kemusyrikan.</li>
+  <li><strong>Akhlak Mulia</strong>: Teladan sempurna dalam seluruh aspek kehidupan.</li>
+  <li><strong>Kesempurnaan Syariat</strong>: Haji Wada' menjadi simbol penyempurnaan ajaran Islam dan penghapusan praktik Jahiliyah.</li>
+</ul>
+<br>
+<h3>2. Pondasi Masyarakat dan Negara Islam</h3>
+<ul>
+  <li><strong>Negara Islam Madinah</strong>: Menandai berdirinya wilayah dan negara Islam pertama.</li>
+  <li><strong>Piagam Madinah</strong>: Konstitusi yang mengatur kehidupan multikultural di Madinah.</li>
+  <li><strong>Persaudaraan Islam</strong>: Ikatan kuat antara kaum Muhajirin dan Anshar.</li>
+  <li><strong>Pentingnya Masjid</strong>: Masjid sebagai pusat komunitas dan pembelajaran.</li>
+  <li><strong>Pendidikan dan Dakwah</strong>: Metodologi dakwah yang bijak dan bertahap.</li>
+</ul>
+<br>
+<h3>3. Mukjizat dan Pemeliharaan Ilahi</h3>
+<ul>
+  <li> Terpeliharanya Al-Quran, Memancarnya air dari jari-jari, terbelahnya bulan, Isra' Mi'raj, dan perlindungan dari upaya pembunuhan merupakan mukjizat beliau yang membuktikan kenabiannya.</li>
+</ul>
+<br>
+<h3>4. Spirit Jihad dan Keteguhan</h3>
+<ul>
+  <li>Semangat jihad tidak hanya dalam bentuk perang, tetapi juga keteguhan dalam dakwah.</li>
+  <li>Keberanian dalam peperangan, seperti di Hunain saat pasukan lain mundur.</li>
+</ul>
+<br>
+<h3>5. Kepemimpinan dan Penerus</h3>
+<ul>
+  <li>Beliau tidak menunjuk penerus secara eksplisit, namun penunjukan Abu Bakar sebagai imam saat sakit menjadi isyarat penting.</li>
+  <li>Musyawarah menjadi dasar penunjukan kepemimpinan setelah beliau.</li>
+</ul>
+<br>
+<p>Secara keseluruhan, warisan Nabi Muhammad adalah agama Islam yang sempurna, teladan kehidupan yang mulia, dan masyarakat yang dibangun di atas prinsip keadilan, persaudaraan, dan ketaatan kepada Allah.</p>
+                        `
+                    }
+                ]
+            },
+            "quiz-app": {
+                "title": "Kuis Pengetahuan",
+                "content": `
+                    <div id="quiz-intro">
+                        <p class="text-gray-700 leading-relaxed mb-4">Uji pengetahuan Anda tentang kehidupan Nabi Muhammad dengan kuis interaktif ini. Kuis ini terdiri dari beberapa pertanyaan pilihan ganda.</p>
+                        <button id="start-quiz-btn" class="bg-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-emerald-700 transition duration-300 ease-in-out">Mulai Kuis</button>
+                    </div>
+                    <div id="quiz-container" class="hidden">
+                        <div id="question-text" class="text-2xl font-semibold mb-6 text-gray-800"></div>
+                        <div id="options-container" class="space-y-4"></div>
+                        <div id="quiz-feedback" class="mt-4 text-center font-semibold hidden"></div>
+                        <button id="next-btn" class="bg-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-emerald-700 transition duration-300 ease-in-out mt-6 hidden">Pertanyaan Berikutnya</button>
+                    </div>
+                    <div id="quiz-result" class="hidden">
+                        <h3 class="text-3xl font-bold mb-4 text-gray-800">Hasil Kuis</h3>
+                        <p id="score-text" class="text-xl text-gray-700 mb-4"></p>
+                        <button id="restart-quiz-btn" class="bg-emerald-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-emerald-700 transition duration-300 ease-in-out">Main Lagi</button>
+                    </div>
+                `
+            }
+        };
+
+        // JSON object for quiz questions
+        const quizQuestions = [
+            {
+                question: "Apa gelar yang diberikan masyarakat kepada Muhammad bin Abdullah sebelum menjadi Nabi?",
+                options: ["Al Amin", "Abal Qosim", "Saifullah", "Al Mustafa"],
+                correctAnswerIndex: 0
+            },
+            {
+                question: "Di mana Nabi Muhammad SAW menerima wahyu pertamanya?",
+                options: ["Mekah", "Madinah", "Gua Hira", "Taif"],
+                correctAnswerIndex: 2
+            },
+            {
+                question: "Gelar apa yang diberikan kepada Nabi Muhammad SAW karena kejujurannya?",
+                options: ["Al-Faruq", "Ash-Shiddiq", "Al-Amin", "Al-Murtada"],
+                correctAnswerIndex: 2
+            },
+            {
+                question: "Apa nama peristiwa hijrah Nabi Muhammad SAW dan para pengikutnya dari Mekah ke Madinah?",
+                options: ["Fathu Makkah", "Perjanjian Hudaibiyah", "Hijrah", "Khutbah Wada'"],
+                correctAnswerIndex: 2
+            },
+            {
+                question: "Apa nama peristiwa penaklukan Makkah secara damai?",
+                options: ["Fathu Makkah", "Perjanjian Hudaibiyah", "Hijrah", "Khutbah Wada'"],
+                correctAnswerIndex: 0
+            }
+        ];
+
+        // Global quiz variables
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        // Get references to DOM elements
+        const menuElement = document.getElementById('menu');
+        const contentDisplayElement = document.getElementById('content-display');
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+
+        /**
+         * Renders the menu items, including submenus, based on the educationData object.
+         */
+        function renderMenu() {
+            menuElement.innerHTML = ''; // Clear existing menu items
+            for (const key in educationData) {
+                if (educationData.hasOwnProperty(key)) {
+                    const topic = educationData[key];
+                    const mainMenuItemDiv = document.createElement('div');
+                    mainMenuItemDiv.className = 'relative'; // For positioning toggle icon
+
+                    const mainMenuItemLink = document.createElement('a');
+                    mainMenuItemLink.href = '#';
+                    mainMenuItemLink.dataset.key = key;
+                    mainMenuItemLink.className = 'menu-item block px-4 py-2 rounded-lg text-gray-700 hover:bg-green-100 hover:text-green-700 transition duration-200 ease-in-out flex items-center justify-between';
+                    mainMenuItemLink.textContent = topic.title;
+
+                    // Add click listener for main topic to display its content
+                    mainMenuItemLink.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        const selectedKey = event.target.closest('.menu-item').dataset.key;
+                        displayContent(selectedKey);
+                        // Remove 'active' from all, add to current main/sub item
+                        document.querySelectorAll('.menu-item, .submenu-item').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        event.target.closest('.menu-item').classList.add('active');
+                    });
+
+                    mainMenuItemDiv.appendChild(mainMenuItemLink);
+
+                    if (topic.subtopics && topic.subtopics.length > 0) {
+                        // Add toggle icon for submenus
+                        const toggleIcon = document.createElement('span');
+                        toggleIcon.className = 'toggle-icon ml-2 text-gray-500 cursor-pointer transform transition duration-200 ease-in-out';
+                        toggleIcon.innerHTML = '&#9656;'; // Right-pointing triangle
+
+                        mainMenuItemLink.appendChild(toggleIcon); // Append icon to the link
+
+                        const submenuContainer = document.createElement('div');
+                        submenuContainer.className = 'submenu-container hidden space-y-2 py-2'; // Hidden by default
+
+                        topic.subtopics.forEach(subtopic => {
+                            const subMenuItem = document.createElement('a');
+                            subMenuItem.href = '#';
+                            subMenuItem.dataset.key = subtopic.key; // Use subtopic's key
+                            subMenuItem.className = 'submenu-item';
+                            subMenuItem.textContent = subtopic.title;
+
+                            // Add click listener for subtopic
+                            subMenuItem.addEventListener('click', (event) => {
+                                event.preventDefault();
+                                const selectedKey = event.target.dataset.key;
+                                displayContent(selectedKey);
+                                // Remove 'active' from all, add to current sub item
+                                document.querySelectorAll('.menu-item, .submenu-item').forEach(item => {
+                                    item.classList.remove('active');
+                                });
+                                event.target.classList.add('active');
+                            });
+                            submenuContainer.appendChild(subMenuItem);
+                        });
+
+                        mainMenuItemDiv.appendChild(submenuContainer);
+
+                        // Toggle submenu visibility on click of the main menu item (including icon)
+                        mainMenuItemLink.addEventListener('click', (event) => {
+                            // Only toggle if the target is the main link itself or its icon, not if it's a subitem click
+                            if (event.target === mainMenuItemLink || event.target === toggleIcon) {
+                                submenuContainer.classList.toggle('hidden');
+                                toggleIcon.classList.toggle('rotated');
+                            }
+                        });
+                    }
+                    menuElement.appendChild(mainMenuItemDiv);
+                }
+            }
+        }
+
+        /**
+         * Displays the content for a given topic or subtopic key.
+         * It searches both main topics and their subtopics.
+         * @param {string} key - The key corresponding to the topic/subtopic in educationData.
+         */
+        function displayContent(key) {
+            let foundTopic = null;
+
+            // Search in main topics
+            if (educationData.hasOwnProperty(key)) {
+                foundTopic = educationData[key];
+            } else {
+                // Search in subtopics
+                for (const mainKey in educationData) {
+                    if (educationData.hasOwnProperty(mainKey) && educationData[mainKey].subtopics) {
+                        const subtopic = educationData[mainKey].subtopics.find(sub => sub.key === key);
+                        if (subtopic) {
+                            foundTopic = subtopic;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (foundTopic) {
+                contentDisplayElement.innerHTML = `
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">${foundTopic.title}</h2>
+                    ${foundTopic.content}
+                `;
+                contentDisplayElement.scrollTop = 0; // Scroll to top of content
+            } else {
+                contentDisplayElement.innerHTML = `
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Konten Tidak Ditemukan</h2>
+                    <p class="text-gray-700">Topik atau subtopik yang diminta tidak dapat ditemukan. Silakan pilih yang lain dari menu.</p>
+                `;
+            }
+
+            // If the key is for the quiz, initialize the quiz
+            if (key === "quiz-app") {
+                setupQuizEventListeners();
+            }
+        }
+
+        // --- QUIZ LOGIC ---
+
+        /**
+         * Sets up event listeners for the quiz buttons.
+         */
+        function setupQuizEventListeners() {
+            const startBtn = document.getElementById('start-quiz-btn');
+            if (startBtn) {
+                startBtn.addEventListener('click', startQuiz);
+            }
+            
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < quizQuestions.length) {
+                        displayQuestion();
+                    } else {
+                        showResult();
+                    }
+                });
+            }
+
+            const restartBtn = document.getElementById('restart-quiz-btn');
+            if (restartBtn) {
+                restartBtn.addEventListener('click', () => {
+                    currentQuestionIndex = 0;
+                    score = 0;
+                    document.getElementById('quiz-intro').classList.remove('hidden');
+                    document.getElementById('quiz-result').classList.add('hidden');
+                });
+            }
+        }
+
+        /**
+         * Starts the quiz by hiding the intro and showing the quiz container.
+         */
+        function startQuiz() {
+            document.getElementById('quiz-intro').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            currentQuestionIndex = 0;
+            score = 0;
+            displayQuestion();
+        }
+
+        /**
+         * Displays the current question and its options.
+         */
+        function displayQuestion() {
+            const questionTextElement = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            const feedbackElement = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('next-btn');
+
+            questionTextElement.textContent = quizQuestions[currentQuestionIndex].question;
+            optionsContainer.innerHTML = '';
+            feedbackElement.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+
+            quizQuestions[currentQuestionIndex].options.forEach((option, index) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.textContent = option;
+                optionBtn.dataset.index = index;
+                optionBtn.className = 'w-full text-left py-3 px-6 rounded-lg bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200 transition-colors duration-200 ease-in-out';
+                optionBtn.addEventListener('click', checkAnswer);
+                optionsContainer.appendChild(optionBtn);
+            });
+        }
+
+        /**
+         * Checks the user's selected answer against the correct answer.
+         * @param {Event} event - The click event from the option button.
+         */
+        function checkAnswer(event) {
+            const selectedOption = event.target;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            const correctIndex = quizQuestions[currentQuestionIndex].correctAnswerIndex;
+            const feedbackElement = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('next-btn');
+            const optionsContainer = document.getElementById('options-container');
+
+            // Disable all option buttons
+            Array.from(optionsContainer.children).forEach(btn => btn.disabled = true);
+            
+            // Provide visual feedback
+            if (selectedIndex === correctIndex) {
+                score++;
+                selectedOption.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+                selectedOption.classList.add('bg-green-200', 'text-green-800');
+                feedbackElement.textContent = 'Jawaban Anda benar!';
+                feedbackElement.classList.remove('hidden');
+                feedbackElement.classList.remove('text-red-600');
+                feedbackElement.classList.add('text-green-600');
+            } else {
+                selectedOption.classList.remove('bg-gray-100', 'hover:bg-gray-200');
+                selectedOption.classList.add('bg-red-200', 'text-red-800');
+                // Highlight the correct answer
+                optionsContainer.children[correctIndex].classList.remove('bg-gray-100');
+                optionsContainer.children[correctIndex].classList.add('bg-green-200', 'text-green-800', 'border-green-400');
+                feedbackElement.textContent = `Jawaban Anda salah. Jawaban yang benar adalah: ${quizQuestions[currentQuestionIndex].options[correctIndex]}.`;
+                feedbackElement.classList.remove('hidden');
+                feedbackElement.classList.remove('text-green-600');
+                feedbackElement.classList.add('text-red-600');
+            }
+
+            nextBtn.classList.remove('hidden');
+        }
+
+        /**
+         * Displays the final quiz result and score.
+         */
+        function showResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            const resultElement = document.getElementById('quiz-result');
+            resultElement.classList.remove('hidden');
+            document.getElementById('score-text').textContent = `Anda berhasil menjawab ${score} dari ${quizQuestions.length} pertanyaan dengan benar.`;
+        }
+
+        // --- BACK-TO-TOP BUTTON LOGIC ---
+
+        // Add a scroll event listener to the content area
+        contentDisplayElement.addEventListener('scroll', () => {
+            // Show the button if the user has scrolled down more than 200px
+            if (contentDisplayElement.scrollTop > 200) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+
+        // Add a click event listener to the button
+        backToTopBtn.addEventListener('click', () => {
+            // Smoothly scroll the content area back to the top
+            contentDisplayElement.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize the app when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMenu();
+            // Display the new introduction section by default on load
+            displayContent("pendahuluan-app");
+            
+            // Remove 'active' from all and add to the new introduction menu item
+            const introMenuItem = menuElement.querySelector('[data-key="pendahuluan-app"]');
+            if (introMenuItem) {
+                document.querySelectorAll('.menu-item, .submenu-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                introMenuItem.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
+
